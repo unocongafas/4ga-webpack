@@ -11,7 +11,7 @@
     npm i -D webpack webpack-cli
     ```
 
-3. Añadimos nuestro fichero de configuración.
+3. Añadimos nuestro fichero de configuración `webpack.config.js`.
 
     ```js
     var path = require('path');
@@ -42,7 +42,7 @@
     },
     ```
 
-6. Ejecutamos el comando para comprobar que funciona correctamente. Deberia generar el fichero 
+6. Ejecutamos el comando para comprobar que funciona correctamente. Deberia generar el fichero `main.bundle.js` en el directorio `dist`
 
     ```bash
     npm run build
@@ -55,7 +55,7 @@
     npm i -D style-loader css-loader 
     ```
 
-8. Actualizamos la configuración de webpack
+8. Actualizamos la configuración de webpack en el fichero `webpack.config.js`.
 
     ```js
     var path = require('path');
@@ -89,7 +89,7 @@
     require('./style.css')
     ```
 
-11. Ejecutamos de nuevo la paquetización.
+11. Ejecutamos de nuevo el comando para paquetizar nuestro proyecto.
 
     ```bash
     npm run build
@@ -102,7 +102,7 @@
     npm i -D html-webpack-plugin
     ```
 
-13. Actualizamos nuestro fichero de configuración de webpack.
+13. Actualizamos la configuración de webpack en el fichero `webpack.config.js`.
 
     ```js
     var path = require('path');
@@ -145,7 +145,7 @@
     </html>
     ```
 
-15. Ejecutamos de nuevo la paquetización.
+15. Ejecutamos de nuevo el comando para paquetizar nuestro proyecto.
 
     ```bash
     npm run build
@@ -180,7 +180,7 @@
     npm run develop
     ```
 
-20. Creamos nuestro fichero `.gitignore` para evitar subir ficheros innecesarios al repositorio.
+20. Creamos un fichero `.gitignore` para evitar subir ficheros innecesarios al repositorio.
 
     ```
     dist
