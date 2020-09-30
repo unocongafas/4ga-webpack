@@ -139,8 +139,6 @@
       </head>
       <body>
         <h1>Webpack</h1>
-
-        <script src="main.bundle.js"></script>
       </body>
     </html>
     ```
