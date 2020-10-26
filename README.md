@@ -1,3 +1,10 @@
+# Webpack
+
+Proyecto base para trabajar con webpack
+
+
+## Paso a paso
+
 1. Inicializamos un proyecto. 
 
     ```bash
@@ -162,30 +169,63 @@
     npm i -D webpack-dev-server
     ```
 
-18. Añadimos el comando `develop` a nuestro proyecto en el fichero `package.json` en la sección `scripts`.
+18. Añadimos el comando `start` a nuestro proyecto en el fichero `package.json` en la sección `scripts`.
 
     ```json
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "webpack",
-      "develop": "webpack-dev-server --mode development --port 3000"
+      "start": "webpack-dev-server --mode development --port 3000"
     }
     ```
 
-19. Ejecutamos el comando develop.
+19. Actualizamos la configuración de webpack en el fichero `webpack.config.js`.
 
-    ```bash
-    npm run develop
+    ```js
+    var path = require('path');
+
+    var HtmlWebpackPlugin = require('html-webpack-plugin');
+
+    const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://')
+    const publicUrl = `3000-${host}`
+
+    module.exports = {
+    mode: 'development',
+    entry: './src/main.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'main.bundle.js',
+        sourceMapFilename: '[name].js.map'
+    },
+    devtool: "source-map",
+    devServer: {
+        historyApiFallback: true,
+        public: publicUrl
+    },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [ 'style-loader', 'css-loader' ]
+        }]
+    },
+    plugins: [new HtmlWebpackPlugin({template: 'src/index.html'})]
+    };
     ```
 
-20. Creamos un fichero `.gitignore` para evitar subir ficheros innecesarios al repositorio.
+20. Ejecutamos el comando start.
+
+    ```bash
+    npm run start
+    ```
+
+21. Creamos un fichero `.gitignore` para evitar subir ficheros innecesarios al repositorio.
 
     ```
     dist
     node_modules
     ```
 
-21. Subimos los cambios a nuestro repositorio.
+22. Subimos los cambios a nuestro repositorio.
 
     ```bash
     git add .
