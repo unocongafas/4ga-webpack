@@ -190,25 +190,25 @@ Proyecto base para trabajar con webpack
     const publicUrl = `3000-${host}`
 
     module.exports = {
-    mode: 'development',
-    entry: './src/main.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'main.bundle.js',
-        sourceMapFilename: '[name].js.map'
-    },
-    devtool: "source-map",
-    devServer: {
-        historyApiFallback: true,
-        public: publicUrl
-    },
-    module: {
-        rules: [{
-            test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
-        }]
-    },
-    plugins: [new HtmlWebpackPlugin({template: 'src/index.html'})]
+        mode: 'development',
+        entry: './src/main.js',
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'main.bundle.js',
+            sourceMapFilename: '[name].js.map'
+        },
+        devtool: "source-map",
+        devServer: {
+            historyApiFallback: true,
+            public: publicUrl
+        },
+        module: {
+            rules: [{
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            }]
+        },
+        plugins: [new HtmlWebpackPlugin({template: 'src/index.html'})]
     };
     ```
 
